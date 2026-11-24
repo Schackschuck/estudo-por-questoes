@@ -1,0 +1,544 @@
+# Árvore de conceitos — Botânica.
+# Regras (spec v0.2, seção 5):
+#   - id é chave, não rótulo: nunca renomeie, nunca reaproveite.
+#   - três níveis abaixo da disciplina: raiz > subárea > folha.
+#   - para pendurar a MESMA tag em outro ramo, repita só o id (sem "nome").
+#     Isso é referência, não duplicata — a tentativa guarda o id, não o caminho.
+#   - diagnostica: false para vocabulário que não deve entrar no cálculo
+#     de domínio nem na trilha.
+disciplina: Biologia — Botânica
+versao: "0.2"
+
+arvore:
+
+# ============================================================ HISTOLOGIA
+- id: bio.histologia_vegetal
+  nome: Histologia vegetal
+  filhos:
+
+  - id: bio.meristemas
+    nome: Meristemas
+    definicao: Tecidos de células indiferenciadas com capacidade de divisão.
+    filhos:
+    - {id: bio.meristema_primario, nome: Meristema primário}
+    - {id: bio.meristema_secundario, nome: Meristema secundário}
+    - {id: bio.meristema_apical, nome: Meristema apical}
+    - {id: bio.meristema_lateral, nome: Meristema lateral}
+    - {id: bio.meristema_intercalar, nome: Meristema intercalar}
+    - {id: bio.protoderme, nome: Protoderme}
+    - {id: bio.procambio, nome: Procâmbio}
+    - {id: bio.meristema_fundamental, nome: Meristema fundamental}
+    - {id: bio.cambio_vascular, nome: Câmbio vascular}
+    - {id: bio.felogenio, nome: Felogênio, sinonimos: [câmbio suberoso]}
+
+  - id: bio.tecidos_revestimento
+    nome: Tecidos de revestimento
+    filhos:
+    - {id: bio.epiderme, nome: Epiderme}
+    - {id: bio.cuticula, nome: Cutícula}
+    - {id: bio.estomato, nome: Estômato}
+    - {id: bio.celulas_guarda, nome: Células-guarda e abertura estomática}
+    - {id: bio.tricomas, nome: Tricomas e pelos}
+    - {id: bio.aculeo, nome: Acúleo, diagnostica: false}
+    - {id: bio.periderme, nome: Periderme}
+    - {id: bio.suber, nome: Súber, sinonimos: [felema, cortiça]}
+    - {id: bio.feloderme, nome: Feloderme}
+    - {id: bio.lenticela, nome: Lenticela}
+
+  - id: bio.tecidos_fundamentais
+    nome: Tecidos fundamentais
+    filhos:
+    - {id: bio.parenquima, nome: Parênquima}
+    - {id: bio.parenquima_clorofiliano, nome: Parênquima clorofiliano}
+    - {id: bio.parenquima_palicadico, nome: Parênquima paliçádico}
+    - {id: bio.parenquima_lacunoso, nome: Parênquima lacunoso}
+    - {id: bio.parenquima_reserva, nome: Parênquima de reserva}
+    - {id: bio.aerenquima, nome: Aerênquima}
+    - {id: bio.parenquima_aquifero, nome: Parênquima aquífero}
+    - {id: bio.colenquima, nome: Colênquima}
+    - {id: bio.esclerenquima, nome: Esclerênquima}
+    - {id: bio.fibras, nome: Fibras}
+    - {id: bio.esclereides, nome: Esclereídes}
+    - {id: bio.tecidos_secretores, nome: Tecidos secretores (laticíferos, nectários)}
+
+  - id: bio.tecidos_vasculares
+    nome: Tecidos vasculares
+    filhos:
+    - {id: bio.xilema, nome: Xilema, sinonimos: [lenho]}
+    - {id: bio.floema, nome: Floema, sinonimos: [líber]}
+    - {id: bio.traqueides, nome: Traqueídes}
+    - {id: bio.elementos_vaso, nome: Elementos de vaso}
+    - {id: bio.tubos_crivados, nome: Tubos crivados}
+    - {id: bio.celulas_companheiras, nome: Células companheiras}
+    - {id: bio.feixes_vasculares, nome: Feixes vasculares e seus arranjos}
+    - id: bio.procambio
+    - id: bio.cambio_vascular
+
+  - id: bio.crescimento_secundario
+    nome: Crescimento secundário
+    filhos:
+    - {id: bio.aneis_crescimento, nome: Anéis de crescimento}
+    - {id: bio.cerne_alburno, nome: Cerne e alburno}
+    - {id: bio.casca, nome: Casca}
+    - {id: bio.raios_medulares, nome: Raios medulares}
+    - {id: bio.crescimento_primario, nome: Crescimento primário}
+    - id: bio.felogenio
+    - id: bio.periderme
+
+# ============================================================ MORFOLOGIA
+- id: bio.morfologia
+  nome: Morfologia vegetal
+  filhos:
+
+  - id: bio.raiz
+    nome: Raiz
+    filhos:
+    - {id: bio.raiz_axial, nome: Raiz axial (pivotante)}
+    - {id: bio.raiz_fasciculada, nome: Raiz fasciculada}
+    - {id: bio.coifa, nome: Coifa}
+    - {id: bio.zona_pilifera, nome: Zona pilífera e pelos absorventes}
+    - {id: bio.zona_suberosa, nome: Zona suberosa}
+    - {id: bio.zona_alongamento, nome: Zona de alongamento}
+    - {id: bio.raiz_tuberosa, nome: Raiz tuberosa}
+    - {id: bio.raiz_escora, nome: Raiz escora}
+    - {id: bio.raiz_tabular, nome: Raiz tabular (sapopema)}
+    - {id: bio.pneumatoforo, nome: Pneumatóforo}
+    - {id: bio.haustorio, nome: Haustório}
+    - {id: bio.velame, nome: Velame}
+
+  - id: bio.caule
+    nome: Caule
+    filhos:
+    - {id: bio.caule_tronco, nome: Tronco}
+    - {id: bio.caule_haste, nome: Haste}
+    - {id: bio.caule_estipe, nome: Estipe}
+    - {id: bio.caule_colmo, nome: Colmo}
+    - {id: bio.rizoma, nome: Rizoma}
+    - {id: bio.tuberculo, nome: Tubérculo}
+    - {id: bio.bulbo, nome: Bulbo}
+    - {id: bio.estolho, nome: Estolho}
+    - {id: bio.cladodio, nome: Cladódio}
+    - {id: bio.espinho_caulinar, nome: Espinho caulinar}
+    - {id: bio.gavinha_caulinar, nome: Gavinha caulinar}
+    - {id: bio.gema_apical, nome: Gema apical e gema lateral}
+    - {id: bio.no_entreno, nome: Nó e entrenó, diagnostica: false}
+
+  - id: bio.folha
+    nome: Folha
+    filhos:
+    - {id: bio.limbo, nome: Limbo}
+    - {id: bio.peciolo, nome: Pecíolo}
+    - {id: bio.bainha_foliar, nome: Bainha foliar}
+    - {id: bio.estipula, nome: Estípula, diagnostica: false}
+    - {id: bio.nervacao_paralelinervea, nome: Nervação paralelinérvea}
+    - {id: bio.nervacao_reticulada, nome: Nervação reticulada}
+    - {id: bio.nervacao_peninervea, nome: Nervação peninérvea}
+    - {id: bio.nervacao_palmatinervea, nome: Nervação palmatinérvea}
+    - {id: bio.folha_simples, nome: Folha simples}
+    - {id: bio.folha_composta, nome: Folha composta (pinada e palmada)}
+    - {id: bio.filotaxia, nome: Filotaxia (alterna, oposta, verticilada)}
+    - {id: bio.espinho_foliar, nome: Espinho foliar}
+    - {id: bio.gavinha_foliar, nome: Gavinha foliar}
+    - {id: bio.catafilo, nome: Catáfilo}
+    - {id: bio.bractea, nome: Bráctea}
+    - {id: bio.folha_anatomia, nome: Anatomia da folha em corte transversal}
+
+  - id: bio.flor
+    nome: Flor
+    filhos:
+    - {id: bio.calice, nome: Cálice e sépalas}
+    - {id: bio.corola, nome: Corola e pétalas}
+    - {id: bio.perianto, nome: Perianto e perigônio}
+    - {id: bio.androceu, nome: Androceu}
+    - {id: bio.estame, nome: Estame (antera e filete)}
+    - {id: bio.gineceu, nome: Gineceu}
+    - {id: bio.pistilo, nome: Pistilo (estigma, estilete, ovário)}
+    - {id: bio.carpelo, nome: Carpelo}
+    - {id: bio.ovario_supero, nome: Ovário súpero}
+    - {id: bio.ovario_infero, nome: Ovário ínfero}
+    - {id: bio.placentacao, nome: Placentação e óvulos}
+    - {id: bio.receptaculo_floral, nome: Receptáculo floral}
+    - {id: bio.flor_completa, nome: Flor completa e incompleta}
+    - {id: bio.monoica_dioica, nome: Planta monoica e dioica}
+    - {id: bio.inflorescencia_racemo, nome: Inflorescência em racemo e espiga}
+    - {id: bio.inflorescencia_umbela, nome: Inflorescência em umbela e corimbo}
+    - {id: bio.inflorescencia_capitulo, nome: Inflorescência em capítulo}
+    - {id: bio.diagrama_floral, nome: Diagrama e fórmula floral, diagnostica: false}
+
+  - id: bio.fruto
+    nome: Fruto
+    filhos:
+    - {id: bio.pericarpo, nome: Pericarpo (epicarpo, mesocarpo, endocarpo)}
+    - {id: bio.fruto_carnoso, nome: Fruto carnoso}
+    - {id: bio.baga, nome: Baga}
+    - {id: bio.drupa, nome: Drupa}
+    - {id: bio.pomo, nome: Pomo}
+    - {id: bio.fruto_seco, nome: Fruto seco}
+    - {id: bio.capsula, nome: Cápsula}
+    - {id: bio.legume_vagem, nome: Legume (vagem)}
+    - {id: bio.siliqua, nome: Síliqua}
+    - {id: bio.aquenio, nome: Aquênio}
+    - {id: bio.cariopse, nome: Cariopse}
+    - {id: bio.samara, nome: Sâmara}
+    - {id: bio.pseudofruto, nome: Pseudofruto}
+    - {id: bio.fruto_composto, nome: Fruto composto (agregado)}
+    - {id: bio.infrutescencia, nome: Infrutescência (fruto múltiplo)}
+    - {id: bio.partenocarpia, nome: Partenocarpia}
+
+  - id: bio.semente
+    nome: Semente
+    filhos:
+    - {id: bio.tegumento, nome: Tegumento (testa e tégmen)}
+    - {id: bio.embriao_vegetal, nome: Embrião}
+    - {id: bio.radicula, nome: Radícula}
+    - {id: bio.cauliculo, nome: Caulículo e hipocótilo}
+    - {id: bio.gemula, nome: Gêmula (plúmula)}
+    - {id: bio.cotiledone, nome: Cotilédone}
+    - {id: bio.endosperma, nome: Endosperma}
+    - {id: bio.semente_albuminosa, nome: Semente albuminosa}
+    - {id: bio.semente_exalbuminosa, nome: Semente exalbuminosa}
+    - {id: bio.germinacao_epigea, nome: Germinação epígea}
+    - {id: bio.germinacao_hipogea, nome: Germinação hipógea}
+    - {id: bio.dormencia_semente, nome: Dormência da semente}
+    - {id: bio.escarificacao, nome: Escarificação e quebra de dormência, diagnostica: false}
+
+# ============================================================ FISIOLOGIA
+- id: bio.fisiologia
+  nome: Fisiologia vegetal
+  filhos:
+
+  - id: bio.fotossintese
+    nome: Fotossíntese
+    filhos:
+    - {id: bio.fase_clara, nome: Fase clara (fotoquímica)}
+    - {id: bio.fase_escura, nome: Fase escura (química)}
+    - {id: bio.fotossistemas, nome: Fotossistemas I e II}
+    - {id: bio.fotofosforilacao, nome: Fotofosforilação cíclica e acíclica}
+    - {id: bio.fotolise_agua, nome: Fotólise da água}
+    - {id: bio.ciclo_calvin, nome: Ciclo de Calvin}
+    - {id: bio.rubisco, nome: Rubisco}
+    - {id: bio.pigmentos_fotossinteticos, nome: Pigmentos fotossintéticos}
+    - {id: bio.espectro_acao, nome: Espectro de ação e de absorção}
+    - {id: bio.plantas_c3, nome: Plantas C3}
+    - {id: bio.plantas_c4, nome: Plantas C4}
+    - {id: bio.plantas_cam, nome: Plantas CAM}
+    - {id: bio.fatores_limitantes, nome: Fatores limitantes da fotossíntese}
+    - {id: bio.ponto_compensacao, nome: Ponto de compensação luminoso}
+    - {id: bio.ponto_saturacao, nome: Ponto de saturação luminosa}
+    - {id: bio.cloroplasto, nome: Cloroplasto (tilacoide, estroma, grana)}
+
+  - id: bio.respiracao_trocas
+    nome: Respiração e trocas gasosas
+    filhos:
+    - {id: bio.respiracao_vegetal, nome: Respiração celular na planta}
+    - {id: bio.fotorrespiracao, nome: Fotorrespiração}
+    - {id: bio.balanco_gasoso, nome: Balanço entre fotossíntese e respiração}
+    - {id: bio.abertura_estomatica, nome: Controle da abertura estomática}
+    - {id: bio.transpiracao, nome: Transpiração cuticular e estomática}
+    - {id: bio.gutacao, nome: Gutação}
+
+  - id: bio.transporte_seiva
+    nome: Transporte de seiva
+    filhos:
+    - {id: bio.seiva_bruta, nome: Seiva bruta (mineral)}
+    - {id: bio.seiva_elaborada, nome: Seiva elaborada (orgânica)}
+    - {id: bio.coesao_tensao, nome: Teoria da coesão-tensão}
+    - {id: bio.pressao_radicular, nome: Pressão radicular}
+    - {id: bio.capilaridade, nome: Capilaridade}
+    - {id: bio.fluxo_massa, nome: Hipótese do fluxo de massa (Münch)}
+    - {id: bio.fonte_dreno, nome: Relação fonte-dreno}
+    - {id: bio.anelamento_malpighi, nome: Anel de Malpighi}
+    - {id: bio.potencial_hidrico, nome: Potencial hídrico e osmose na célula vegetal}
+    - {id: bio.plasmolise, nome: Plasmólise e turgescência}
+
+  - id: bio.nutricao_mineral
+    nome: Nutrição mineral
+    filhos:
+    - {id: bio.macronutrientes, nome: Macronutrientes}
+    - {id: bio.micronutrientes, nome: Micronutrientes}
+    - {id: bio.deficiencias_minerais, nome: Sintomas de deficiência mineral}
+    - {id: bio.absorcao_radicular, nome: Absorção radicular (apoplasto e simplasto)}
+    - {id: bio.estria_caspary, nome: Estrias de Caspary}
+    - {id: bio.fixacao_nitrogenio, nome: Fixação biológica de nitrogênio}
+    - {id: bio.micorrizas, nome: Micorrizas}
+    - {id: bio.plantas_carnivoras, nome: Plantas carnívoras, diagnostica: false}
+
+  - id: bio.hormonios_vegetais
+    nome: Hormônios vegetais
+    filhos:
+    - {id: bio.auxina, nome: Auxina}
+    - {id: bio.dominancia_apical, nome: Dominância apical}
+    - {id: bio.giberelina, nome: Giberelina}
+    - {id: bio.citocinina, nome: Citocinina}
+    - {id: bio.etileno, nome: Etileno}
+    - {id: bio.acido_abscisico, nome: Ácido abscísico}
+    - {id: bio.senescencia_abscisao, nome: Senescência e abscisão foliar}
+    - {id: bio.aplicacoes_hormonios, nome: Aplicações agronômicas de hormônios, diagnostica: false}
+
+  - id: bio.movimentos_fotoperiodismo
+    nome: Movimentos e fotoperiodismo
+    filhos:
+    - {id: bio.fototropismo, nome: Fototropismo}
+    - {id: bio.gravitropismo, nome: Gravitropismo (geotropismo)}
+    - {id: bio.tigmotropismo, nome: Tigmotropismo}
+    - {id: bio.tropismo, nome: Tropismo (conceito geral)}
+    - {id: bio.nastismo, nome: Nastismo}
+    - {id: bio.fotoperiodismo, nome: Fotoperiodismo}
+    - {id: bio.fitocromo, nome: Fitocromo}
+    - {id: bio.planta_dia_curto, nome: Planta de dia curto}
+    - {id: bio.planta_dia_longo, nome: Planta de dia longo}
+    - {id: bio.planta_neutra, nome: Planta neutra}
+    - {id: bio.vernalizacao, nome: Vernalização}
+
+# ============================================================ REPRODUÇÃO
+- id: bio.reproducao_vegetal
+  nome: Reprodução das plantas
+  filhos:
+
+  - id: bio.gametogenese_vegetal
+    nome: Gametogênese vegetal
+    filhos:
+    - {id: bio.microsporogenese, nome: Microsporogênese}
+    - {id: bio.megasporogenese, nome: Megasporogênese}
+    - {id: bio.grao_polen, nome: Grão de pólen}
+    - {id: bio.saco_embrionario, nome: Saco embrionário}
+    - {id: bio.oosfera, nome: Oosfera}
+    - {id: bio.nucleos_polares, nome: Núcleos polares}
+    - {id: bio.sinergides_antipodas, nome: Sinérgides e antípodas, diagnostica: false}
+
+  - id: bio.polinizacao
+    nome: Polinização
+    filhos:
+    - {id: bio.autopolinizacao, nome: Autopolinização}
+    - {id: bio.polinizacao_cruzada, nome: Polinização cruzada}
+    - {id: bio.anemofilia, nome: Anemofilia}
+    - {id: bio.entomofilia, nome: Entomofilia}
+    - {id: bio.ornitofilia, nome: Ornitofilia}
+    - {id: bio.quiropterofilia, nome: Quiropterofilia}
+    - {id: bio.hidrofilia, nome: Hidrofilia}
+    - {id: bio.adaptacoes_florais, nome: Adaptações florais ao polinizador}
+
+  - id: bio.fecundacao_vegetal
+    nome: Fecundação e desenvolvimento
+    filhos:
+    - {id: bio.tubo_polinico, nome: Tubo polínico}
+    - {id: bio.dupla_fecundacao, nome: Dupla fecundação}
+    - {id: bio.endosperma_triploide, nome: Endosperma triploide (3n)}
+    - {id: bio.formacao_fruto, nome: Formação do fruto a partir do ovário}
+    - {id: bio.formacao_semente, nome: Formação da semente a partir do óvulo}
+    - {id: bio.embriogenese_vegetal, nome: Embriogênese vegetal}
+
+  - id: bio.dispersao
+    nome: Dispersão
+    filhos:
+    - {id: bio.anemocoria, nome: Anemocoria}
+    - {id: bio.zoocoria, nome: Zoocoria}
+    - {id: bio.hidrocoria, nome: Hidrocoria}
+    - {id: bio.autocoria, nome: Autocoria}
+    - {id: bio.adaptacoes_dispersao, nome: Adaptações do fruto ao dispersor}
+
+  - id: bio.reproducao_assexuada_vegetal
+    nome: Reprodução assexuada
+    filhos:
+    - {id: bio.propagacao_vegetativa, nome: Propagação vegetativa}
+    - {id: bio.estaquia, nome: Estaquia}
+    - {id: bio.enxertia, nome: Enxertia}
+    - {id: bio.alporquia, nome: Alporquia}
+    - {id: bio.cultura_tecidos, nome: Cultura de tecidos e clonagem}
+    - {id: bio.apomixia, nome: Apomixia, diagnostica: false}
+
+  - id: bio.alternancia_geracoes
+    nome: Alternância de gerações
+    filhos:
+    - {id: bio.esporofito, nome: Esporófito}
+    - {id: bio.gametofito, nome: Gametófito}
+    - {id: bio.metagenese, nome: Metagênese (ciclo haplodiplobionte)}
+    - {id: bio.esporos, nome: Esporos e esporângios}
+    - {id: bio.anteridio_arquegonio, nome: Anterídio e arquegônio}
+    - {id: bio.heterosporia, nome: Heterosporia e isosporia}
+
+# ============================================================ GRUPOS
+- id: bio.grupos_vegetais
+  nome: Grupos vegetais
+  filhos:
+
+  - id: bio.briofitas
+    nome: Briófitas
+    filhos:
+    - {id: bio.musgos, nome: Musgos}
+    - {id: bio.hepaticas, nome: Hepáticas}
+    - {id: bio.antoceros, nome: Antóceros}
+    - {id: bio.rizoide, nome: Rizoide, filoide e cauloide}
+    - {id: bio.briofitas_ciclo, nome: Ciclo das briófitas (gametófito dominante)}
+    - {id: bio.avascular, nome: Ausência de vasos condutores}
+
+  - id: bio.pteridofitas
+    nome: Pteridófitas
+    filhos:
+    - {id: bio.samambaias, nome: Samambaias}
+    - {id: bio.cavalinhas, nome: Cavalinhas e licopódios}
+    - {id: bio.fronde, nome: Fronde e báculo}
+    - {id: bio.soro_esporangio, nome: Soros e esporângios}
+    - {id: bio.prototalo, nome: Protalo}
+    - {id: bio.pteridofitas_ciclo, nome: Ciclo das pteridófitas (esporófito dominante)}
+
+  - id: bio.gimnospermas
+    nome: Gimnospermas
+    filhos:
+    - {id: bio.coniferas, nome: Coníferas}
+    - {id: bio.cicadaceas, nome: Cicadáceas e Ginkgo}
+    - {id: bio.estrobilo, nome: Estróbilo (cone)}
+    - {id: bio.semente_nua, nome: Semente nua (ausência de fruto)}
+    - {id: bio.gimnospermas_ciclo, nome: Ciclo das gimnospermas}
+    - {id: bio.independencia_agua, nome: Independência da água para a fecundação}
+
+  - id: bio.angiospermas
+    nome: Angiospermas
+    filhos:
+    - {id: bio.monocotiledoneas, nome: Monocotiledôneas}
+    - {id: bio.eudicotiledoneas, nome: Eudicotiledôneas}
+    - {id: bio.angiospermas_ciclo, nome: Ciclo das angiospermas}
+    - {id: bio.flor_fruto_novidade, nome: Flor e fruto como novidades evolutivas}
+    - {id: bio.familias_botanicas, nome: Famílias botânicas de interesse, diagnostica: false}
+
+  - id: bio.evolucao_vegetal
+    nome: Evolução das plantas
+    filhos:
+    - {id: bio.algas_ancestrais, nome: Algas verdes ancestrais}
+    - {id: bio.conquista_terrestre, nome: Conquista do ambiente terrestre}
+    - {id: bio.novidade_vasos, nome: Vasos condutores como novidade evolutiva}
+    - {id: bio.novidade_semente, nome: Semente como novidade evolutiva}
+    - {id: bio.reducao_gametofito, nome: Tendência de redução do gametófito}
+    - {id: bio.polen_evolucao, nome: Pólen e a independência da água}
+
+  - id: bio.sistematica
+    nome: Sistemática e nomenclatura
+    filhos:
+    - {id: bio.nomenclatura_binomial, nome: Nomenclatura binomial}
+    - {id: bio.categorias_taxonomicas, nome: Categorias taxonômicas}
+    - {id: bio.cladistica, nome: Cladística e grupos monofiléticos}
+    - {id: bio.reino_plantae, nome: Reino Plantae e seus limites}
+
+# ================================================ RAMO TRANSVERSAL (seção 5)
+# As folhas aqui são as MESMAS de cima, penduradas também neste ramo. Serve
+# para a agregação por ancestral responder "você troca os caracteres
+# diagnósticos" em vez de espalhar o erro por dois ramos distantes.
+- id: bio.caracteres_diagnosticos
+  nome: Caracteres diagnósticos (pares que se confundem)
+  # Ramo transversal: reúne folhas que já vivem nos ramos temáticos. Não é uma
+  # seção do conteúdo programático, é uma lente sobre ele — por isso a triagem
+  # varre por ramo temático e não conta uma visita aqui como cobertura.
+  transversal: true
+  filhos:
+
+  - id: bio.cd_nervacao
+    nome: Paralelinérvea × reticulada
+    filhos:
+    - id: bio.nervacao_paralelinervea
+    - id: bio.nervacao_reticulada
+
+  - id: bio.cd_sustentacao
+    nome: Colênquima × esclerênquima
+    filhos:
+    - id: bio.colenquima
+    - id: bio.esclerenquima
+
+  - id: bio.cd_meristemas
+    nome: Meristema primário × secundário
+    filhos:
+    - id: bio.meristema_primario
+    - id: bio.meristema_secundario
+    - id: bio.crescimento_primario
+
+  - id: bio.cd_condutores
+    nome: Xilema × floema
+    filhos:
+    - id: bio.xilema
+    - id: bio.floema
+    - id: bio.seiva_bruta
+    - id: bio.seiva_elaborada
+
+  - id: bio.cd_revestimento
+    nome: Epiderme × periderme
+    filhos:
+    - id: bio.epiderme
+    - id: bio.periderme
+
+  - id: bio.cd_semente_reserva
+    nome: Semente albuminosa × exalbuminosa
+    filhos:
+    - id: bio.semente_albuminosa
+    - id: bio.semente_exalbuminosa
+
+  - id: bio.cd_germinacao
+    nome: Germinação epígea × hipógea
+    filhos:
+    - id: bio.germinacao_epigea
+    - id: bio.germinacao_hipogea
+
+  - id: bio.cd_ovario
+    nome: Ovário súpero × ínfero
+    filhos:
+    - id: bio.ovario_supero
+    - id: bio.ovario_infero
+
+  - id: bio.cd_fruto_pseudofruto
+    nome: Fruto × pseudofruto
+    filhos:
+    - id: bio.pericarpo
+    - id: bio.pseudofruto
+    - id: bio.infrutescencia
+    - id: bio.fruto_composto
+
+  - id: bio.cd_mono_eudico
+    nome: Monocotiledônea × eudicotiledônea
+    filhos:
+    - id: bio.monocotiledoneas
+    - id: bio.eudicotiledoneas
+    - id: bio.raiz_axial
+    - id: bio.raiz_fasciculada
+
+  - id: bio.cd_fotossintese_via
+    nome: C3 × C4 × CAM
+    filhos:
+    - id: bio.plantas_c3
+    - id: bio.plantas_c4
+    - id: bio.plantas_cam
+
+  - id: bio.cd_fases_fotossintese
+    nome: Fase clara × fase escura
+    filhos:
+    - id: bio.fase_clara
+    - id: bio.fase_escura
+
+  - id: bio.cd_geracoes
+    nome: Esporófito × gametófito
+    filhos:
+    - id: bio.esporofito
+    - id: bio.gametofito
+
+  - id: bio.cd_movimento
+    nome: Tropismo × nastismo
+    filhos:
+    - id: bio.tropismo
+    - id: bio.nastismo
+
+  - id: bio.cd_sexualidade_flor
+    nome: Monoica × dioica
+    filhos:
+    - id: bio.monoica_dioica
+    - id: bio.flor_completa
+
+  - id: bio.cd_subterraneo
+    nome: Caule subterrâneo × raiz subterrânea
+    filhos:
+    - id: bio.rizoma
+    - id: bio.tuberculo
+    - id: bio.bulbo
+    - id: bio.raiz_tuberosa
+
+  - id: bio.cd_perda_agua
+    nome: Transpiração × gutação
+    filhos:
+    - id: bio.transpiracao
+    - id: bio.gutacao

@@ -1,0 +1,190 @@
+:root{
+  --fundo:#f4f4f2; --papel:#fff; --tinta:#1a1a18; --suave:#6b6b66;
+  --linha:#e2e2dd; --acento:#2f6f4f; --acento-claro:#e8f2ec;
+  --erro:#b3402f; --alerta:#b8860b; --cinza:#c9c9c4;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --fundo:#17181a; --papel:#1f2124; --tinta:#e8e8e4; --suave:#9a9a95;
+    --linha:#2e3034; --acento:#6fbd93; --acento-claro:#1d2b24;
+    --erro:#e0745f; --alerta:#d4a94a; --cinza:#4a4c50;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--fundo); color:var(--tinta);
+  font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+main{max-width:760px; margin:0 auto; padding:12px 12px 48px}
+
+/* navegação */
+#nav{
+  position:sticky; top:0; z-index:10; display:flex; gap:2px;
+  background:var(--papel); border-bottom:1px solid var(--linha);
+  padding:6px 6px calc(6px + env(safe-area-inset-top,0)); padding-top:6px;
+}
+#nav button{
+  flex:1; border:0; background:transparent; color:var(--suave);
+  font:inherit; font-size:14px; padding:10px 4px; border-radius:8px; cursor:pointer;
+}
+#nav button.ativo{background:var(--acento-claro); color:var(--acento); font-weight:600}
+
+.tela{display:none} .tela.ativa{display:block}
+.oculto{display:none !important}
+
+.cartao{
+  background:var(--papel); border:1px solid var(--linha); border-radius:12px;
+  padding:16px; margin-bottom:12px;
+}
+.cartao.destaque{border-color:var(--acento); border-width:2px}
+h2{font-size:17px; margin:0 0 10px} h3{font-size:15px; margin:0 0 8px}
+.dica{color:var(--suave); font-size:13px; margin:6px 0}
+.procedencia{color:var(--suave); font-size:12px; margin:0 0 8px}
+.notas{font-size:14px; color:var(--suave); white-space:pre-wrap; margin-top:10px}
+
+/* botões */
+button{font:inherit; cursor:pointer}
+.primario{
+  width:100%; padding:14px; border:0; border-radius:10px;
+  background:var(--acento); color:#fff; font-weight:600; margin-top:12px;
+}
+.primario:disabled{background:var(--cinza); color:var(--papel); cursor:not-allowed}
+.secundario{
+  width:100%; padding:11px; border:1px solid var(--linha); border-radius:10px;
+  background:transparent; color:var(--tinta); margin-top:10px;
+}
+.link{border:0; background:none; color:var(--suave); text-decoration:underline; font-size:13px}
+.botoes{display:flex; gap:8px; flex-wrap:wrap}
+.botoes button{
+  flex:1 1 auto; min-width:110px; padding:11px 8px; border:1px solid var(--linha);
+  border-radius:10px; background:transparent; color:var(--tinta);
+}
+
+/* campos */
+.campo{display:block; font-size:13px; color:var(--suave); margin:10px 0}
+.campo.linha{display:flex; align-items:center; gap:8px}
+input[type=text],input:not([type]),textarea,select{
+  width:100%; margin-top:4px; padding:10px; font:inherit; color:var(--tinta);
+  background:var(--fundo); border:1px solid var(--linha); border-radius:8px;
+}
+textarea{resize:vertical; font-size:14px}
+
+/* sessão */
+.modos{display:flex; flex-direction:column; gap:8px}
+.modo{display:flex; gap:10px; align-items:flex-start; padding:10px;
+  border:1px solid var(--linha); border-radius:10px}
+.modo:has(:checked){border-color:var(--acento); background:var(--acento-claro)}
+.modo small{display:block; color:var(--suave); font-size:12px; margin-top:2px}
+.barra-sessao{display:flex; justify-content:space-between; align-items:center;
+  font-size:13px; color:var(--suave); padding:0 4px 8px}
+
+#enunciado{font-size:17px; line-height:1.55; white-space:pre-wrap; margin-bottom:14px}
+
+/* alternativas */
+.alt{display:flex; align-items:stretch; gap:8px; margin-bottom:8px}
+.alt .corpo{
+  flex:1; display:flex; gap:10px; text-align:left; padding:13px;
+  border:1px solid var(--linha); border-radius:10px; background:transparent;
+  color:var(--tinta); line-height:1.4;
+}
+.alt .letra{font-weight:700; color:var(--suave); min-width:18px}
+.alt.marcada .corpo{border-color:var(--acento); border-width:2px; background:var(--acento-claro)}
+.alt.eliminada .corpo{opacity:.45; text-decoration:line-through; text-decoration-thickness:1px}
+.alt .riscar{
+  width:46px; border:1px solid var(--linha); border-radius:10px;
+  background:transparent; color:var(--suave); font-size:17px;
+}
+.alt.eliminada .riscar{color:var(--erro); border-color:var(--erro)}
+.alt.certa .corpo{border-color:var(--acento); border-width:2px}
+.alt.errada .corpo{border-color:var(--erro); border-width:2px}
+.alt[disabled] .riscar{visibility:hidden}
+
+.metas{display:flex; gap:6px; flex-wrap:wrap; margin-top:14px}
+.metas button{
+  flex:1 1 auto; font-size:12px; padding:9px 6px; border:1px dashed var(--linha);
+  border-radius:8px; background:transparent; color:var(--suave);
+}
+
+#veredito{font-size:17px; font-weight:600; margin-bottom:8px}
+#veredito.acerto{color:var(--acento)} #veredito.erro{color:var(--erro)}
+#veredito.neutro{color:var(--suave)}
+#explicacao{font-size:14px; white-space:pre-wrap}
+
+/* árvore do painel */
+.no{padding:3px 0}
+.no .rotulo{display:flex; align-items:center; gap:8px; font-size:14px}
+.no .caret{width:16px; color:var(--suave); cursor:pointer; user-select:none}
+.no .nome{flex:1; cursor:pointer}
+.no .pilula{
+  font-size:11px; padding:2px 7px; border-radius:20px;
+  background:var(--cinza); color:var(--papel); white-space:nowrap;
+}
+.pilula.fraca{background:var(--erro); color:#fff}
+.pilula.parcial{background:var(--alerta); color:#fff}
+.pilula.dominada{background:var(--acento); color:#fff}
+.pilula.sem_dado{background:var(--cinza)}
+.no .filhos{margin-left:14px; border-left:1px solid var(--linha); padding-left:10px}
+.no.excluida > .rotulo .nome{text-decoration:line-through; opacity:.5}
+
+.item-hoje{border-bottom:1px solid var(--linha); padding:10px 0}
+.item-hoje:last-child{border-bottom:0}
+.item-hoje b{font-size:15px}
+.item-hoje ul{margin:6px 0 0; padding-left:18px; font-size:13px; color:var(--suave)}
+/* conteudos-pai deficitarios: a lista que abre na setinha */
+.pai .rotulo-pai{display:flex; align-items:center; gap:8px; flex-wrap:wrap; cursor:pointer}
+.pai .caret{width:14px; color:var(--suave); user-select:none; font-size:13px}
+.pai .nome-pai{flex:1 1 auto; min-width:0}
+.pai .nome-pai b{font-size:15px}
+.pai .caminho{font-size:12px; color:var(--suave)}
+.pai .conta-folhas{font-size:12px; color:var(--suave); white-space:nowrap}
+.pai .pilula{font-size:11px; padding:2px 7px; border-radius:20px;
+  white-space:nowrap}
+.corpo-pai{margin:8px 0 2px 14px; border-left:1px solid var(--linha); padding-left:10px}
+.corpo-pai > ul{margin:0 0 8px; padding-left:18px; font-size:13px; color:var(--suave)}
+.folhas-pai .folha{display:flex; align-items:center; gap:8px; padding:4px 0; font-size:14px}
+.folhas-pai .folha .nome{flex:1 1 auto; min-width:0}
+.folhas-pai .folha .ir{flex:0 0 auto; padding:0; cursor:pointer}
+
+.aviso{border-left:3px solid var(--alerta)}
+.provisorio{font-size:11px; color:var(--alerta); margin-left:6px}
+
+/* importação */
+.qcard{background:var(--papel); border:1px solid var(--linha); border-radius:12px;
+  padding:14px; margin-bottom:10px}
+.qcard textarea{font-size:14px}
+.qcard .alts input{margin-bottom:5px}
+.qcard .cabeca{display:flex; justify-content:space-between; align-items:center;
+  font-size:13px; color:var(--suave); margin-bottom:8px}
+.tags-escolhidas{display:flex; gap:6px; flex-wrap:wrap; margin:8px 0}
+.chip{
+  display:inline-flex; align-items:center; gap:6px; font-size:12px; padding:4px 9px;
+  border-radius:20px; background:var(--acento-claro); color:var(--acento);
+}
+.chip.secundaria{background:var(--fundo); color:var(--suave)}
+.chip button{border:0; background:none; color:inherit; font-size:14px; padding:0}
+.bandeira{font-size:11px; padding:2px 7px; border-radius:4px; background:var(--fundo);
+  color:var(--alerta); border:1px solid var(--alerta); margin-left:6px}
+
+/* Recompensa de gesto. Premia o que gera dado: marcar é a escolha, eliminar
+   é o raciocínio — e é a eliminação que alimenta peso, crédito parcial e
+   matriz de confusão. Por isso eliminar vale mais. */
+#pontos{font-variant-numeric:tabular-nums; font-weight:600; color:var(--acento)}
+.premio{
+  position:fixed; pointer-events:none; z-index:50; font-weight:700; font-size:13px;
+  color:var(--acento); text-shadow:0 1px 2px var(--fundo);
+  animation:sobe .75s cubic-bezier(.2,.8,.3,1) forwards;
+}
+.premio.forte{font-size:17px}
+@keyframes sobe{
+  0%  {opacity:0; transform:translate(-50%,2px) scale(.7)}
+  20% {opacity:1; transform:translate(-50%,-6px) scale(1.08)}
+  100%{opacity:0; transform:translate(-50%,-38px) scale(1)}
+}
+.alt .corpo:active,.alt .riscar:active{transform:scale(.97)}
+.alt .corpo,.alt .riscar{transition:transform .09s ease}
+@media (prefers-reduced-motion: reduce){
+  .premio{animation-duration:.01s}
+  .alt .corpo,.alt .riscar{transition:none}
+}

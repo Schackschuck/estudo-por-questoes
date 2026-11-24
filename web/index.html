@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Estudo por questões</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav id="nav">
+  <button data-tela="resolver" class="ativo">Resolver</button>
+  <button data-tela="painel">Painel</button>
+  <button data-tela="importar">Importar</button>
+  <button data-tela="curadoria">Curadoria</button>
+</nav>
+
+<main>
+
+<!-- ═══════════════════════════════════════════════════ RESOLVER -->
+<section id="tela-resolver" class="tela ativa">
+
+  <div id="inicio-sessao" class="cartao">
+    <h2>Começar uma sessão</h2>
+    <div class="modos">
+      <label class="modo">
+        <input type="radio" name="modo" value="estudo" checked>
+        <div><b>Estudo</b><small>Rotina diária. Só eliminação de alternativa.</small></div>
+      </label>
+      <label class="modo">
+        <input type="radio" name="modo" value="triagem">
+        <div><b>Triagem</b><small>Conteúdo novo. Instrumentação completa: eliminação,
+          confiança declarada, confirmação de anti-chute.</small></div>
+      </label>
+      <label class="modo">
+        <input type="radio" name="modo" value="simulado">
+        <div><b>Simulado</b><small>Nada além do que existe no papel.</small></div>
+      </label>
+    </div>
+    <label class="campo">Restringir a um assunto (opcional)
+      <input id="filtro-tag" list="lista-tags" placeholder="digite para buscar…">
+      <datalist id="lista-tags"></datalist>
+    </label>
+    <button id="btn-comecar" class="primario">Começar</button>
+  </div>
+
+  <div id="area-questao" class="oculto">
+    <div class="barra-sessao">
+      <span id="info-sessao"></span>
+      <span id="pontos"></span>
+      <button id="btn-encerrar" class="link">encerrar</button>
+    </div>
+
+    <div class="cartao">
+      <p id="procedencia" class="procedencia"></p>
+      <div id="enunciado"></div>
+      <div id="alternativas"></div>
+
+      <div id="metas" class="metas">
+        <button data-meta="ja_fiz">Já fiz essa questão</button>
+        <button data-meta="nao_faco_ideia">Não faço ideia</button>
+        <button data-meta="nao_preciso">Não preciso desse conteúdo</button>
+      </div>
+
+      <button id="btn-confirmar" class="primario" disabled>Confirmar resposta</button>
+    </div>
+
+    <!-- Janela pós-confirmação: depois de escolher, antes do gabarito. -->
+    <div id="pos-confirmacao" class="cartao destaque oculto">
+      <h3>Antes do gabarito</h3>
+      <div id="pergunta-confianca">
+        <p>Qual era a sua confiança?</p>
+        <div class="botoes">
+          <button data-conf="certeza">Certeza</button>
+          <button data-conf="duvida_entre_duas">Dúvida entre duas</button>
+          <button data-conf="chute">Chute</button>
+        </div>
+      </div>
+      <div id="pergunta-chute" class="oculto">
+        <p>Você respondeu muito rápido, sem eliminar nenhuma alternativa.
+           Isso foi um chute?</p>
+        <div class="botoes">
+          <button data-chute="sim">Foi chute</button>
+          <button data-chute="nao">Não, eu sabia</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="correcao" class="cartao oculto">
+      <div id="veredito"></div>
+      <div id="explicacao"></div>
+      <div id="diagnostico" class="notas"></div>
+      <button id="btn-proxima" class="primario">Próxima questão</button>
+    </div>
+  </div>
+
+  <div id="sem-questao" class="cartao oculto">
+    <p>Não há questão disponível com esse filtro.</p>
+    <p class="dica">Importe questões na aba <b>Importar</b>, ou tire o filtro de assunto.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ PAINEL -->
+<section id="tela-painel" class="tela">
+  <div id="resumo" class="cartao"></div>
+
+  <div class="cartao">
+    <h2>O que eu estudo hoje</h2>
+    <div id="hoje"></div>
+    <button id="btn-relatorio" class="secundario oculto">Escrever relatório em prosa (usa LLM)</button>
+    <div id="relatorio" class="notas"></div>
+  </div>
+
+  <div class="cartao">
+    <h2>Conteúdos-pai mais deficitários</h2>
+    <p class="dica">Um nível acima da lista de cima: o ramo inteiro, não a folha
+      solta. O número do pai é herdado das folhas (peso decai com a distância),
+      então ele diz <b>onde</b> cavar; a setinha abre <b>as tags em si</b>, da mais
+      fraca para a mais forte, que é o que se estuda. Ramo com folhas fracas
+      espalhadas sobe na frente de ramo com uma folha fraca só.</p>
+    <div id="pais"></div>
+  </div>
+
+  <div id="alertas"></div>
+
+  <div class="cartao">
+    <h2>Árvore de conceitos</h2>
+    <p class="dica">Cinza é <b>sem dado</b>, nunca fraqueza. A porcentagem é
+      <b>domínio estimado</b>, não taxa de acerto: ela parte de 50% e só se afasta
+      conforme a evidência se acumula, então um único acerto dá 67% e não 100%.
+      É o que faz três acertos não valerem trinta. Passe o mouse na pílula para
+      ver a contagem crua.</p>
+    <label class="campo linha">
+      <input type="checkbox" id="so-com-dado"> mostrar só o que tem dado
+    </label>
+    <div id="arvore"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ IMPORTAR -->
+<section id="tela-importar" class="tela">
+  <div class="cartao">
+    <h2>Colar questões</h2>
+    <p class="dica">Cole enunciado, alternativas e gabarito. O parser separa e você revisa.
+      Questões do tipo “assinale a incorreta” e V/F rendem muito mais por minuto
+      de etiquetagem — priorize importar essas.</p>
+    <textarea id="texto-bruto" rows="10" placeholder="1. (UFRGS 2019) Qual tecido…
+a) epiderme
+b) periderme
+c) colênquima
+Gabarito: C"></textarea>
+    <label class="campo">Procedência do lote (opcional)
+      <input id="procedencia-lote" placeholder="Apostila X, p. 42 / Prova UFRGS 2019">
+    </label>
+    <button id="btn-analisar" class="primario">Analisar</button>
+  </div>
+  <div id="revisao"></div>
+  <div id="resultado-import" class="notas"></div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ CURADORIA -->
+<section id="tela-curadoria" class="tela">
+  <div class="cartao">
+    <h2>Fila de quarentena</h2>
+    <p class="dica">Questões com sinal de defeito. As tentativas delas já saíram do
+      cálculo de domínio, retroativamente.</p>
+  </div>
+  <div id="fila-curadoria"></div>
+</section>
+
+</main>
+<script src="app.js"></script>
+</body>
+</html>

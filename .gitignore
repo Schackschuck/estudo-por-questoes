@@ -1,0 +1,11 @@
+# Banco pessoal (minhas respostas e meu histórico de estudo)
+estudo.db
+estudo.db.bak
+*.db
+*.db.bak
+
+# Anotações de sessão
+HANDOFF.md
+
+__pycache__/
+*.pyc
